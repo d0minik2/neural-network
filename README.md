@@ -1,10 +1,13 @@
 # Neural Network
 
-My first attempt to create neural networks from scratch.
-
 <hr>
 
+My first attempt to create neural networks from scratch.
+
+
 ## Example usage
+
+<hr>
 
 Example usage with [MNIST handwritten digits dataset](http://yann.lecun.com/exdb/mnist/). The network will predict what this number is based on the image.
 
