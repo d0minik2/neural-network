@@ -3,7 +3,6 @@ import pickle
 import numpy as np
 
 
-
 class InputLayer:
     """Neural network input layer"""
 
@@ -225,7 +224,7 @@ class NeuralNetwork:
                 for layer in range(len(self.layers)):
                     self.layers[layer] = self.backprop_layers[layer].update_layer()
 
-    def test(self, test_data) -> int:
+    def test(self, test_data, argmax=True) -> int:
         """Returns the count of correct calculated data"""
 
         return sum(np.argmax(self.calculate(x)) == y for x, y in test_data)
@@ -285,6 +284,7 @@ def s_biases(error: np.ndarray) -> np.ndarray:  # BP3
 
 
 def s_weights(activations: np.ndarray, error: np.ndarray) -> np.ndarray:  # BP4
-    """Sensivity error to weights: ∂Cost / ∂weights = activations[l-1].transpose() * error[l]"""
+    """Sensivity error to weights: ∂Cost / ∂weights = (∂z[l] / ∂w[l]) * error
+     = activations[l-1].transpose() * error[l]"""
 
     return np.dot(error, activations.transpose())

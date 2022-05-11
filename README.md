@@ -7,15 +7,14 @@ My first attempt to create neural networks from scratch.
 
 ## Example usage
 
-<hr>
-
 Example usage with [MNIST handwritten digits dataset](http://yann.lecun.com/exdb/mnist/). The network will predict what this number is based on the image.
 
 ### Importing neural network model and MNIST dataset
 
 ```python
-import mnist
-from network import NeuralNetwork, load_network
+from scripts import mnist
+from scripts.network import NeuralNetwork, load_network
+
 ```
 
 
