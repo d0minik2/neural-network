@@ -267,14 +267,14 @@ def errorOut(cost_a: np.ndarray, sigm: np.ndarray) -> np.ndarray:  # BP1
     sigmoid` gets small if the sigmoid is near saturation
     """
 
-    return 2*cost_a * (sigm * (1 - sigm))
+    return cost_a * (sigm * (1 - sigm))
 
 
 def errorL(weights: np.ndarray, error: np.ndarray, sigm: np.ndarray) -> np.ndarray:  # BP2
     """Error for current layer: errorL = (∂activations[l] / ∂z[l]) * (∂Cost / ∂activations[l])
     = 2*((weights[l+1]).transpose() * error[l+1]) ⊙ sigmoid(z[l])"""
 
-    return 2*np.dot(weights.transpose(), error) * (sigm*(1-sigm))
+    return np.dot(weights.transpose(), error) * (sigm*(1-sigm))
 
 
 def s_biases(error: np.ndarray) -> np.ndarray:  # BP3
@@ -284,7 +284,8 @@ def s_biases(error: np.ndarray) -> np.ndarray:  # BP3
 
 
 def s_weights(activations: np.ndarray, error: np.ndarray) -> np.ndarray:  # BP4
-    """Sensivity error to weights: ∂Cost / ∂weights = (∂z[l] / ∂w[l]) * error
-     = activations[l-1].transpose() * error[l]"""
+    """Sensivity cost to weights: ∂Cost / ∂weights = (∂z[l] / ∂w[l]) * error
+     = activations[l-1] * error[l]"""
 
     return np.dot(error, activations.transpose())
+

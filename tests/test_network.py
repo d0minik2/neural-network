@@ -1,4 +1,4 @@
-from neural_network.scripts import network
+from scripts import network
 
 import random
 import numpy as np
@@ -49,7 +49,6 @@ class TestNetwork(unittest.TestCase):
 
         # check if accuracy is above 60%
         self.assertGreater((net.test(testing_data)/len(testing_data)), .6)
-
 
     def test_backpropagation(self):
         net = network.NeuralNetwork([random.randint(1, 5) for _ in range(random.randint(3, 5))])
