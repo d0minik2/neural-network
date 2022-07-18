@@ -12,8 +12,8 @@ Example usage with [MNIST handwritten digits dataset](http://yann.lecun.com/exdb
 ### Importing neural network model and MNIST dataset
 
 ```python
-from scripts import mnist
-from scripts.network import NeuralNetwork, load_network
+from src import mnist
+from src.network import NeuralNetwork, load_network
 
 ```
 

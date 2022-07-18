@@ -1,4 +1,4 @@
-from scripts import network
+from src import network
 
 import random
 import numpy as np
@@ -33,7 +33,7 @@ class TestEquations(unittest.TestCase):
         error_out = network.errorOut(
                     network.cost(network.sigmoid(z), out),
                     network.sigmoid(z)
-                )
+        )
 
         error_l_test = -(
                 network.errorOut(
@@ -45,7 +45,7 @@ class TestEquations(unittest.TestCase):
         error_l = network.errorL(
             weights, error_out, network.sigmoid(z0)
         )
-        
+
         self.assertAlmostEqual(error_l, error_l_test, delta=self.h*1e2)
 
     def test_s_weights(self):

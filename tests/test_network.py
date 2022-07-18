@@ -1,4 +1,4 @@
-from scripts import network
+from src import network
 
 import random
 import numpy as np
